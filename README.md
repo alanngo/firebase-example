@@ -4,7 +4,7 @@
 
 ## Database Structure
 
-<img src="./img/structure.png" >
+<img src="./img/db_structure.png" >
 
 ## NodeJS
 
