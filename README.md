@@ -1,11 +1,14 @@
 <img src="./img/firebase.png" align="right" width="100">
 
-# Firebase
+# Firebase Realtime DB
 
 ## Database Structure
 
 <img src="./img/db_structure.png" >
 
+- hierarchy based
+- need to traverse the tree to access/modify property
+- think of it like the linux file system
 ## NodeJS
 
 ### Prerequisites
@@ -21,11 +24,11 @@ const CONFIG =
 {
     apiKey: "INSERT API KEY HERE",
     authDomain: "INSERT AUTH DOMAIN HERE",
-    databaseURL: "INSERT DB URL HERE",,
-    projectId: "INSERT PROJECT ID HERE",,
-    storageBucket: "hogwarts-a1a2d.appspot.com",
-    messagingSenderId: "331243676435",
-    appId: "INSERT APP ID HERE",,
+    databaseURL: "INSERT DB URL HERE",
+    projectId: "INSERT PROJECT ID HERE",
+    storageBucket: "INSERT STORAGE BUCKET HERE",
+    messagingSenderId: "INSERT MESSAGING SENDER ID HERE",
+    appId: "INSERT APP ID HERE",
     measurementId: "INSERT MEASUREMENT ID HERE"
 };
 export default CONFIG
@@ -75,4 +78,31 @@ err =>
     console.log(err)
     // error handling logic goes here
 })
+```
+
+### Find by id 
+```javascript
+let entry = COLLECTION.child("INSERT KEY HERE")
+entry.on('value', 
+res => 
+{
+    let results = res.val()
+    // logic of result goes here
+},
+err =>
+{
+    console.log(err)
+    // error handling logic goes here
+})
+```
+### Delete all entries
+```javascript
+COLLECTION.remove()
+.catch(err => console.log(err))
+```
+
+### Delete an entry by id
+```javascript
+COLLECTION.child("INSERT ID HERE").remove()
+.catch(err => console.log(err))
 ```
